@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="NewsMasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Project News</title>
+     <link rel="stylesheet" runat="server" href="~/CSS/materialize.css">
+     <link href="~/CSS/font-nunito.css" rel="stylesheet"> 
+     <link href="~/CSS/news-master.css" rel="stylesheet"> 
+</head>
+<body>
+    
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+    </form>
+    <script src="~/JS/materialize.js"></script>
+</body>
+</html>
