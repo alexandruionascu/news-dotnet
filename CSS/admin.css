@@ -1,0 +1,12 @@
+﻿body{
+	background: url(../IMG/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.login-text {
+    margin-top: -6px;
+    margin-left: -6px !important;
+}
+
