@@ -11,4 +11,9 @@ public partial class _Default : System.Web.UI.Page
     {
 
     }
+
+    public void ButtonClick(Object sender, EventArgs e)
+    {
+        this.button1.InnerText = "Boss";
+    }
 }
