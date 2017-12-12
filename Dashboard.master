@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Dashboard.master.cs" Inherits="Dashboard" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" runat="server" href="~/CSS/materialize.css">
+     <link href="~/css/font-nunito.css" rel="stylesheet"> 
+     <link href="~/css/dashboard-master.css" rel="stylesheet"> 
+</head>
+<body>
+    <form id="form1" runat="server" style="height: 100vh">
+        <asp:ContentPlaceHolder id="DashboardContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </form>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+</body>
+</html>
