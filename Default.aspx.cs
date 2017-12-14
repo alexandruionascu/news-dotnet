@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -14,6 +15,9 @@ public partial class _Default : System.Web.UI.Page
 
     public void ButtonClick(Object sender, EventArgs e)
     {
-        this.button1.InnerText = "Boss";
+        var user = new User("Users");
+        user.username = "Bos";
+        user.password = "123";
+        this.button1.InnerText = user.generateInsertQuery();
     }
 }
