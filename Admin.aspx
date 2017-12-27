@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
 
-    <div class="container">
+    <div class="container" runat="server">
         <div class="row">
             <div class="box col s4 offset-s4 z-depth-4 card-panel">
 
@@ -25,25 +25,26 @@
                     <p class="center login-form-text">Welcome back, Admin</p>
                   </div>
                 </div>
+                <div id="Eroare" onserverclick="Login_Click" runat="server"></div>
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">account_circle</i>
-                      <input id="username" type="text" class="validate">
+                      <input id="username" runat="server"  type="text" class="validate">
                       <label for="username">Username</label>
                     </div>
                    </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">lock</i>
-                      <input id="password" type="password" class="validate">
+                      <input id="password" runat="server" type="password" class="validate">
                       <label for="password">Password</label>              
                     </div>
                   </div>
                   
                   <div class="row">
                     <div class="input-field col s12">
-                        <button class="btn waves-effect waves-light col s12" type="submit" name="action">Login</button>            
+                        <button class="btn waves-effect waves-light col s12" type="submit" id="loginButton" onserverclick="Login_Click" runat="server" name="action">Login</button>            
                     </div>
                   </div>
                 </form>
