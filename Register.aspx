@@ -16,14 +16,14 @@
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">account_circle</i>
-                      <input id="username" type="text" class="validate">
+                      <input id="username" runat="server" type="text" class="validate">
                       <label for="username">Username</label>
                     </div>
                    </div>
                     <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">email</i>
-                      <input id="email" type="text" class="validate">
+                      <input id="email" runat="server"  type="text" class="validate">
                       <label for="email">Email</label>
                     </div>
                    </div>
@@ -31,7 +31,7 @@
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">lock</i>
-                      <input id="password" type="password" class="validate">
+                      <input id="password" runat="server" type="password" class="validate">
                       <label for="password">Password</label>              
                     </div>
                   </div>
@@ -39,14 +39,14 @@
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">lock</i>
-                      <input id="confirmpassword" type="password" class="validate">
+                      <input id="confirmpassword" runat="server" type="password" class="validate">
                       <label for="confirmpassword">Confirm password</label>              
                     </div>
                   </div>
                   
                   <div class="row">
                     <div class="input-field col s12">
-                        <button class="btn waves-effect waves-light col s12" type="submit" name="action">Register</button>            
+                        <button class="btn waves-effect waves-light col s12" id="registerButton" type="submit" onserverclick="Register_Click" runat="server" name="action">Register</button>            
                     </div>
                   </div>
                 </form>

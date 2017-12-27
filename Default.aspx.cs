@@ -15,9 +15,6 @@ public partial class _Default : System.Web.UI.Page
 
     public void ButtonClick(Object sender, EventArgs e)
     {
-        var user = new User("Users");
-        user.username = "Bos";
-        user.password = "123";
-        this.button1.InnerText = user.generateInsertQuery();
+        this.button1.InnerText = "boss";
     }
 }
