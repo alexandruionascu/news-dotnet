@@ -5,13 +5,14 @@
     <div class="container">
         <div class="row">
             <div class="">
-
+                
                 <div class="row">
                   <div class="input-field col s12 center">
                     <img src="IMG/default_avatar.png" width="100" class="circle responsive-img valign profile-image-login">
                     <p class="center login-form-text">Register</p>
                   </div>
                 </div>
+                   <div id="Eroare" onserverclick="Register_Click" runat="server"></div>
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s12">
