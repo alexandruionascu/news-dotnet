@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DashboardMaster.master.cs" Inherits="DashboardMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" runat="server" href="~/CSS/materialize.css">
+     <link href="~/css/font-nunito.css" rel="stylesheet"> 
+     <link href="~/css/dashboard-master.css" rel="stylesheet"> 
+</head>
+<body>
+    <form id="form1" runat="server" style="height: 90vh; color: #A2A2A2">
+        <div class="row" style="height: 100%">
+            <div class="col s3" style="background: #F8F8F8; height:100%; padding-top: 5%">
+                <div style="padding: 5%">
+                    <img src="http://i.dailymail.co.uk/i/pix/2017/04/20/13/3F6B966D00000578-4428630-image-m-80_1492690622006.jpg"
+                        style="width: 50px; border-radius: 50%"/>
+                    <b>Jane Brookie</b>
+                    <br />
+                    Admin since 2017
+                </div>
+
+                <ul>
+
+                    <li class="row">
+                        <a class="s3 offset-s3" style="color: #A2A2A2"><i class="material-icons" >home</i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a><i class="material-icons">email</i>Mail</a>
+                    </li>
+                    <li>
+                        <a><i class="material-icons">email</i>Mail</a>
+                    </li>
+                    <li>
+                        <a><i class="material-icons">home</i>Mail</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col s8">
+                <asp:ContentPlaceHolder id="DashboardContent" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        
+        
+    </form>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+</body>
+</html>
