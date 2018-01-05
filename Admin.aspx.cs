@@ -17,6 +17,7 @@ public partial class Admin : System.Web.UI.Page
     protected void Login_Click(object sender, EventArgs e)
     {
         var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
+        
         var user = username.Value;
         var pass = password.Value;
         if(user == String.Empty)
