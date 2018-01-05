@@ -6,15 +6,15 @@
 <head runat="server">
     <title></title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link rel="stylesheet" runat="server" href="~/CSS/materialize.css">
-     <link href="~/css/font-nunito.css" rel="stylesheet"> 
-     <link href="~/css/dashboard-master.css" rel="stylesheet"> 
+    <link rel="stylesheet" runat="server" href="~/CSS/materialize.css">
+    <link href="~/css/font-nunito.css" rel="stylesheet"> 
+    <link href="~/css/dashboard-master.css" rel="stylesheet"> 
 </head>
-<body>
-    <form id="form1" runat="server" style="height: 90vh; color: #A2A2A2">
+<body style="background: #F8F8F8;">
+    <form id="form1" runat="server" style="height: 90vh; color: #A2A2A2;">
         <div class="row" style="height: 100%">
-            <div class="col s3" style="background: #F8F8F8; height:100%; padding-top: 5%">
-                <div style="padding: 5%">
+            <div class="col l2 m3 s12" style="padding-top: 1em">
+                <div style="padding: 1em">
                     <img src="http://i.dailymail.co.uk/i/pix/2017/04/20/13/3F6B966D00000578-4428630-image-m-80_1492690622006.jpg"
                         style="width: 50px; border-radius: 50%"/>
                     <b>Jane Brookie</b>
@@ -22,19 +22,18 @@
                     Admin since 2017
                 </div>
 
-                <ul>
-
-                    <li class="row">
-                        <a class="s3 offset-s3" style="color: #A2A2A2"><i class="material-icons" >home</i>Dashboard</a>
+                <ul style="padding-left: 10%">
+                    <li>
+                        <a class="valign-wrapper" href="Admin.aspx"><i class="material-icons" >home</i>Dashboard</a>
                     </li>
                     <li>
-                        <a><i class="material-icons">email</i>Mail</a>
+                        <a class="valign-wrapper" href="Articles.aspx" ><i class="material-icons">email</i>Mail</a>
                     </li>
                     <li>
-                        <a><i class="material-icons">email</i>Mail</a>
+                        <a class="valign-wrapper" ><i class="material-icons">email</i>Manage users</a>
                     </li>
                     <li>
-                        <a><i class="material-icons">home</i>Mail</a>
+                        <a class="valign-wrapper" ><i class="material-icons">home</i>News</a>
                     </li>
                 </ul>
             </div>

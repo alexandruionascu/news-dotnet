@@ -1,3 +1,17 @@
 ﻿body, html {
     font-family: 'Nunito', sans-serif;
 }
+
+li a i {
+    padding-right: 1em;
+    color: #A2A2A2;
+}
+
+ul li {
+    padding: 0.75em;
+}
+
+a {
+    color: #A2A2A2;
+    font-weight: 500;
+}
