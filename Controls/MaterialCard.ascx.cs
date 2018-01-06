@@ -22,8 +22,7 @@ public partial class MaterialCard : System.Web.UI.UserControl
         {
             this.DataBind();
         }
-
-        profilePicture.Attributes["src"] = PictureUrl;
+        
         var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
         var method = typeof(SQLMonkey).GetMethod("retrieve");
         var generic = method.MakeGenericMethod(ModelType);
