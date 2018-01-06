@@ -24,10 +24,10 @@
 
                 <ul style="padding-left: 10%">
                     <li>
-                        <a class="valign-wrapper" href="Admin.aspx"><i class="material-icons" >home</i>Dashboard</a>
+                        <a class="valign-wrapper" href="Admin.aspx"><i class="material-icons">home</i>Articles</a>
                     </li>
                     <li>
-                        <a class="valign-wrapper" href="Articles.aspx" ><i class="material-icons">email</i>Mail</a>
+                        <a class="valign-wrapper" href="Articles.aspx" ><i class="material-icons">email</i>Users</a>
                     </li>
                     <li>
                         <a class="valign-wrapper" ><i class="material-icons">email</i>Manage users</a>

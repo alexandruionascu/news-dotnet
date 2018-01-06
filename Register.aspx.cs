@@ -20,21 +20,25 @@ public partial class Register : System.Web.UI.Page
             type = "reader",
             id = count + 1
         };
+
         if(user.username == String.Empty)
         {
-            Eroare.InnerText = "Nu ai introdus numele de utilizator!";
+            registerButton.InnerText = "Nu ai introdus numele de utilizator!";
             return;
         }
+
         if (password.Value != confirmpassword.Value)
         {
-            Eroare.InnerText = "Parolele sunt diferite!";
+            registerButton.InnerText = "Parolele sunt diferite!";
             return;
         }
+
         if (user.email == String.Empty)
         {
-            Eroare.InnerText = "Nu ai introdus email-ul!";
+            registerButton.InnerText = "Nu ai introdus email-ul!";
             return;
         }
+
         monkey.insert<User>(user, "Users");
         registerButton.InnerText = "Sucessfuly registered";       
     }

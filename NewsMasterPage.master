@@ -18,12 +18,7 @@
       <div class="row">
         <div class="col s12">
           <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-          <a href="#" class="brand-logo" target="_blank">Materialize Framework</a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#" target="_blank">Sass</a></li>
-            <li><a href="#" target="_blank">Components</a></li>
-            <li><a href="#" target="_blank">JavaScript</a></li>
-          </ul>
+          <a href="#" class="brand-logo" target="_blank">News Dotnet</a>
         </div>
       </div>
       <ul class="side-nav" id="mobile-demo">
@@ -47,8 +42,8 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">News Dotnet</h5>
+                <p class="grey-text text-lighten-4">We are a non-profit news organization. All rights reserved.</p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
@@ -63,8 +58,7 @@
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                © 2018 News Dotnet
             </div>
           </div>
         </footer>
