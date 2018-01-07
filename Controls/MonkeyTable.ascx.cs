@@ -15,6 +15,13 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
     {
         var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
         var users = monkey.retrieve<User>("Users");
+        var columns = typeof(User).GetProperties().Select(x => x.Name);
+        foreach (var column in columns)
+        {
+            var thead = new HtmlGenericControl("th");
+            thead.InnerText = column;
+            tableHead.Controls.Add(thead);
+        }
         foreach (var user in users)
         {
             var row = new Controls_MonkeyRow
@@ -24,7 +31,6 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
             };
 
             tableBody.Controls.Add(row);
-            //monkeyTable.Controls.Add(row);
         }
     }
 }
