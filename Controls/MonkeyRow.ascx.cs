@@ -13,7 +13,10 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.DataBind();
+        if(!IsPostBack)
+        {
+            this.DataBind();
+        }
 
         if (Instance == null)
         {
@@ -22,20 +25,43 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
 
         LoadRowData();
         LoadRowEditing();
+
         if (viewPanel.Visible)
         {
             editPanel.Visible = false;
         }
+
+
     }
 
     public void Edit_Click(object sender, EventArgs e)
     {
-        viewPanel.Visible = false;
+        
         editPanel.Visible = true;
+        viewPanel.Visible = false;
     }
 
     public void Update_Click(object sender, EventArgs e)
     {
+        var values = new List<string>();
+        // extract new data from textboxes
+        foreach (var control in editPanel.Controls)
+        {
+            if (control is HtmlGenericControl)
+            {
+                foreach (var childControl in ((HtmlGenericControl)control).Controls)
+                {
+                    foreach (var grandchildControl in ((HtmlGenericControl)childControl).Controls)
+                    {
+                        if (grandchildControl is TextBox)
+                        {
+                            values.Add((grandchildControl as TextBox).Text);
+                        }
+                    }
+                }
+            }
+        }
+      
         viewPanel.Visible = true;
         editPanel.Visible = false;
     }
@@ -45,14 +71,16 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         this.Visible = false;
     }
 
+
+
     private void LoadRowEditing()
     {
         var row = new HtmlGenericControl("tr");
         foreach (var value in getInstanceValues())
         {
-            var tableData = new HtmlGenericControl("td");
-            var input = new HtmlGenericControl("input");
+            var input = new TextBox();
             input.Attributes["placeholder"] = value;
+            var tableData = new HtmlGenericControl("td");
             tableData.Controls.Add(input);
             row.Controls.Add(tableData);
         }
@@ -92,7 +120,6 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         row.Controls.Add(td2);
 
         viewPanel.Controls.Add(row);
-
     }
 
     private HtmlGenericControl CreateIcon(string iconName)
