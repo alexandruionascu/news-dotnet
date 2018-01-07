@@ -29,8 +29,10 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
         var columns = ModelType.GetProperties().Select(x => x.Name);
         foreach (var column in columns)
         {
-            var thead = new HtmlGenericControl("th");
-            thead.InnerText = column;
+            var thead = new HtmlGenericControl("th")
+            {
+                InnerText = column
+            };
             tableHead.Controls.Add(thead);
         }
         //add table's body

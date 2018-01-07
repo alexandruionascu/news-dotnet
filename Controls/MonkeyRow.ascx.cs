@@ -25,13 +25,27 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         var row = new HtmlGenericControl("tr");
         foreach (var value in values)
         {
-            var td = new HtmlGenericControl("td");
-            td.InnerHtml = value;
+            var td = new HtmlGenericControl("td")
+            {
+                InnerText = value
+            };
             row.Controls.Add(td);
         }
 
-        var icon = new LiteralControl();
-        icon.Text = "<td><i class='material-icons'>mode_edit</i></td><td><i class='material-icons'>delete</i></td>";
+        var icon = new LiteralControl
+        {
+            Text = @"
+                <td>
+                    <i class='material-icons'>
+                        mode_edit
+                    </i>
+                </td>
+                <td>
+                    <i class='material-icons'>
+                        delete
+                    </i>
+                </td>"
+        };
         row.Controls.Add(icon);
 
         this.Controls.Add(row);
