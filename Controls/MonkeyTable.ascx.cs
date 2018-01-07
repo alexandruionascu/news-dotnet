@@ -13,10 +13,7 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            this.DataBind();
-        }
+        this.DataBind();
         // connect to the database
         var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
         // call the retrieve method using reflections

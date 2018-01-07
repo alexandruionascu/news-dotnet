@@ -13,6 +13,8 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.DataBind();
+        
         if (Instance == null)
         {
             throw new Exception("No instance object attached to row!");
@@ -32,23 +34,23 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
             row.Controls.Add(td);
         }
 
+        var td1 = new HtmlGenericControl("td");
+        var a1 = new HtmlAnchor();
+        a1.ServerClick += Delete_Click;
         var icon = new LiteralControl
         {
-            Text = @"
-                <td>
-                    <i class='material-icons'>
-                        mode_edit
-                    </i>
-                </td>
-                <td>
-                    <i class='material-icons'>
-                        delete
-                    </i>
-                </td>"
+            Text = "<i class='material-icons'>mode_edit</i>"
         };
-        row.Controls.Add(icon);
 
+        a1.Controls.Add(icon);
+        td1.Controls.Add(a1);
+        row.Controls.Add(td1);
         this.Controls.Add(row);
+
     }
-    
+
+    public void Delete_Click(object sender, EventArgs e)
+    {
+        this.Visible = false;
+    }
 }

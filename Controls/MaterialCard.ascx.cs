@@ -22,11 +22,5 @@ public partial class MaterialCard : System.Web.UI.UserControl
         {
             this.DataBind();
         }
-        
-        var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
-        var method = typeof(SQLMonkey).GetMethod("retrieve");
-        var generic = method.MakeGenericMethod(ModelType);
-        var users = generic.Invoke(monkey, new string[] {"users"}) as IEnumerable<User>;
-        tag.Text = users.Count().ToString();
     }
 }
