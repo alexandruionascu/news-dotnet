@@ -22,7 +22,9 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
                 ModelType = typeof(User),
                 Instance = user
             };
-            this.Controls.Add(row);
+
+            tableBody.Controls.Add(row);
+            //monkeyTable.Controls.Add(row);
         }
     }
 }

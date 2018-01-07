@@ -22,11 +22,11 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
             x => Instance.GetType().GetProperty(x.Name).GetValue(Instance, null).ToString()
         );
 
-        var row = new HtmlTableRow();
+        var row = new HtmlGenericControl("tr");
         foreach (var value in values)
         {
-            var td = new HtmlTableCell();
-            td.InnerText = value;
+            var td = new HtmlGenericControl("td");
+            td.InnerHtml = value;
             row.Controls.Add(td);
         }
 
