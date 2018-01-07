@@ -35,11 +35,10 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
         //add table's body
         foreach (var instance in instances)
         {
-            var row = new Controls_MonkeyRow
-            {
-                ModelType = ModelType,
-                Instance = instance
-            };
+            var row = (Controls_MonkeyRow)Page.LoadControl("Controls/MonkeyRow.ascx");
+
+            row.ModelType = ModelType;
+            row.Instance = instance;
 
             tableBody.Controls.Add(row);
         }
