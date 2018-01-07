@@ -5,5 +5,5 @@
     <h1>Articles</h1>
     <uc:Card runat="server" Title="Alex Boss" ModelType="<%# typeof(User) %>" SubTitle="Ce smecher" Text="Acesta e textu meu." Tag="user" PictureUrl="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAVEAAAAJGZjNGJkYTNiLTVlZjYtNDU2OC04OWY5LTg1ZmZiODNiZGMyOA.jpg" />
     <br />
-    <uc:MonkeyTable runat="server" />
+    <uc:MonkeyTable Collection="users" ModelType="<%# typeof(User) %>" runat="server" />
 </asp:Content>

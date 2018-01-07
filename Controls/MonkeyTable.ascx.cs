@@ -13,21 +13,33 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            this.DataBind();
+        }
+        // connect to the database
         var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
-        var users = monkey.retrieve<User>("Users");
-        var columns = typeof(User).GetProperties().Select(x => x.Name);
+        // call the retrieve method using reflections
+        var method = typeof(SQLMonkey).GetMethod("retrieve");
+        var generic = method.MakeGenericMethod(ModelType);
+        // get the result
+        var instances = generic.Invoke(monkey, new string[] { Collection }) as IEnumerable<object>;
+        
+        // add table's head
+        var columns = ModelType.GetProperties().Select(x => x.Name);
         foreach (var column in columns)
         {
             var thead = new HtmlGenericControl("th");
             thead.InnerText = column;
             tableHead.Controls.Add(thead);
         }
-        foreach (var user in users)
+        //add table's body
+        foreach (var instance in instances)
         {
             var row = new Controls_MonkeyRow
             {
-                ModelType = typeof(User),
-                Instance = user
+                ModelType = ModelType,
+                Instance = instance
             };
 
             tableBody.Controls.Add(row);
