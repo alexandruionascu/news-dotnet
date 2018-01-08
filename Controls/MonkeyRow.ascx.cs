@@ -30,8 +30,6 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         {
             editPanel.Visible = false;
         }
-
-
     }
 
     public void Edit_Click(object sender, EventArgs e)
@@ -61,7 +59,45 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
                 }
             }
         }
-      
+
+        
+
+        var propValuePairs  = getInstaceProperties().Zip(values, (p, v) => Tuple.Create(p, v));
+
+        foreach (var pair in propValuePairs)
+        {
+            if (pair.Item2 == String.Empty)
+            {
+                continue;
+            }
+
+            var prop = ModelType.GetProperty(pair.Item1);
+            object value = prop.GetValue(Instance, null);
+            object valueToSet = pair.Item2;
+            var b = Convert.ChangeType("23", prop.PropertyType);
+
+            if (prop.PropertyType == typeof(int))
+            {
+                valueToSet = Convert.ToInt32(valueToSet);
+            }
+            else if (prop.PropertyType != typeof(string))
+            {
+                throw new Exception
+                (
+                    String.Format("Property type {0} in object model is not supported.")
+                );
+            }
+            else
+            {
+                prop.SetValue(Instance, valueToSet, null);
+            }
+        }
+
+        var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
+        // call the update method using reflections
+        var method = typeof(SQLMonkey).GetMethod("update");
+        var generic = method.MakeGenericMethod(ModelType);
+        generic.Invoke(monkey, new object[] { Instance, "users" });
         viewPanel.Visible = true;
         editPanel.Visible = false;
     }
@@ -132,14 +168,16 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
 
     private IEnumerable<string> getInstaceProperties()
     {
-        return ModelType.GetProperties().Select(
+        return ModelType.GetProperties().Select
+        (
             x => x.Name
         );
     }
 
     private IEnumerable<string> getInstanceValues()
     {
-        return ModelType.GetProperties().Select(
+        return ModelType.GetProperties().Select
+        (
             x => Instance.GetType().GetProperty(x.Name).GetValue(Instance, null).ToString()
         );
     }
