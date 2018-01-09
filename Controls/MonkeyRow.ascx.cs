@@ -39,29 +39,26 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         viewPanel.Visible = false;
     }
 
+    private IEnumerable<HtmlGenericControl> GetTablesData(Panel parent)
+    {
+        var tr = parent.Controls.OfType<HtmlGenericControl>().First();
+        return tr.Controls.OfType<HtmlGenericControl>();
+    }
+
     public void Update_Click(object sender, EventArgs e)
     {
         var values = new List<string>();
-        // extract new data from textboxes
-        foreach (var control in editPanel.Controls)
+        var tds = GetTablesData(editPanel);
+        foreach (var td in tds)
         {
-            if (control is HtmlGenericControl)
+            var textbox = td.Controls.OfType<TextBox>().FirstOrDefault();
+            if (textbox != null)
             {
-                foreach (var childControl in ((HtmlGenericControl)control).Controls)
-                {
-                    foreach (var grandchildControl in ((HtmlGenericControl)childControl).Controls)
-                    {
-                        if (grandchildControl is TextBox)
-                        {
-                            values.Add((grandchildControl as TextBox).Text);
-                        }
-                    }
-                }
+                values.Add(textbox.Text);
             }
+
         }
-
-        
-
+       
         var propValuePairs  = getInstaceProperties().Zip(values, (p, v) => Tuple.Create(p, v));
 
         foreach (var pair in propValuePairs)
@@ -74,7 +71,6 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
             var prop = ModelType.GetProperty(pair.Item1);
             object value = prop.GetValue(Instance, null);
             object valueToSet = pair.Item2;
-            var b = Convert.ChangeType("23", prop.PropertyType);
 
             if (prop.PropertyType == typeof(int))
             {
@@ -98,6 +94,20 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         var method = typeof(SQLMonkey).GetMethod("update");
         var generic = method.MakeGenericMethod(ModelType);
         generic.Invoke(monkey, new object[] { Instance, "users" });
+
+        // set updated data to the view row
+        var tdValuePairs = GetTablesData(viewPanel).Zip(values,
+            (td, value) => Tuple.Create(td, value));
+
+        foreach (var tdValuePair in tdValuePairs)
+        {
+            if (tdValuePair.Item2 == String.Empty)
+            {
+                continue;
+            }
+
+            tdValuePair.Item1.InnerText = tdValuePair.Item2;
+        }
         viewPanel.Visible = true;
         editPanel.Visible = false;
     }
