@@ -4,7 +4,12 @@
         <div class="card-image">
           <img src="<%# PictureUrl %>" style="max-height: 300px">
           <span class="card-title"><%# Title %></span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">pageview</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"
+              href="<%# String.Format("Read.aspx?article={0}", Title) %>">
+              <i class="material-icons">
+                  pageview
+              </i>
+          </a>
         </div>
         <div class="card-content">
           <p class="truncate"><%# Text %></p>

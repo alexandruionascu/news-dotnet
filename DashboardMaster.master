@@ -30,10 +30,7 @@
                         <a class="valign-wrapper" href="Users.aspx" ><i class="material-icons">account_box</i>Users</a>
                     </li>
                     <li>
-                        <a class="valign-wrapper" ><i class="material-icons">email</i>Manage users</a>
-                    </li>
-                    <li>
-                        <a class="valign-wrapper" ><i class="material-icons">home</i>News</a>
+                        <a class="valign-wrapper" href="Comments.aspx" ><i class="material-icons">chat</i>Comments</a>
                     </li>
                 </ul>
             </div>
