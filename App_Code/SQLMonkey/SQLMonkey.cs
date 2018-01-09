@@ -57,6 +57,9 @@ public class SQLMonkey
 
                     foreach (var prop in propValuePairs)
                     {
+                        if (reader[prop] is DBNull)
+                            continue;
+
                         instance.GetType().GetProperty(prop).SetValue(instance, reader[prop], null);
                     }
 

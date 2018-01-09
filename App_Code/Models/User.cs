@@ -5,4 +5,5 @@
     public string password { get; set; }
     public string email { get; set; }
     public string type { get; set; }
+    public string picture { get; set; }
 }

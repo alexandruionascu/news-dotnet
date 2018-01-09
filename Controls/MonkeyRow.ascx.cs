@@ -191,7 +191,10 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
     {
         return ModelType.GetProperties().Select
         (
-            x => Instance.GetType().GetProperty(x.Name).GetValue(Instance, null).ToString()
+            x => Instance.GetType().GetProperty(x.Name).GetValue(Instance, null)
+        ).Select
+        (
+            x => x == null ? String.Empty : x.ToString()
         );
     }
 }
