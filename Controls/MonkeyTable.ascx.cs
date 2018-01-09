@@ -39,6 +39,7 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
 
             row.ModelType = ModelType;
             row.Instance = instance;
+            row.Collection = Collection;
 
             tableBody.Controls.Add(row);
         }
@@ -73,7 +74,7 @@ public partial class Controls_MonkeyTable : System.Web.UI.UserControl
         // call the update method using reflections
         var method = typeof(SQLMonkey).GetMethod("insert");
         var generic = method.MakeGenericMethod(ModelType);
-        generic.Invoke(monkey, new object[] { instance, "users" });
+        generic.Invoke(monkey, new object[] { instance, Collection });
         Response.Redirect(Request.RawUrl);
     }
 }

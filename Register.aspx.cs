@@ -17,6 +17,7 @@ public partial class Register : System.Web.UI.Page
             username = username.Value,
             password = password.Value,
             email = email.Value,
+            picture = pictureInput.Value,
             type = "reader",
             id = count + 1
         };

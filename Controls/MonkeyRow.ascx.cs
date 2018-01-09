@@ -10,6 +10,7 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
 {
     public Type ModelType { get; set; }
     public object Instance { get; set; }
+    public string Collection { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -66,7 +67,7 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         // call the update method using reflections
         var method = typeof(SQLMonkey).GetMethod("update");
         var generic = method.MakeGenericMethod(ModelType);
-        generic.Invoke(monkey, new object[] { Instance, "users" });
+        generic.Invoke(monkey, new object[] { Instance, Collection });
 
         // set updated data to the view row
         var tdValuePairs = GetTablesData(viewPanel).Zip(values,
@@ -148,7 +149,9 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         var row = new HtmlGenericControl("tr");
         foreach (var value in getInstanceValues())
         {
-            row.Controls.Add(new HtmlGenericControl("td") { InnerText = value });
+            var td = new HtmlGenericControl("td") { InnerText = value };
+            
+            row.Controls.Add(td);
         }
 
         var td1 = new HtmlGenericControl("td");
