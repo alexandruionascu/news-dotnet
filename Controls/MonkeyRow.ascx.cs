@@ -150,7 +150,8 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         foreach (var value in getInstanceValues())
         {
             var td = new HtmlGenericControl("td") { InnerText = value };
-            
+            // set maximum size
+            td.InnerText = td.InnerText.Substring(0, Math.Min(td.InnerText.Length, 15));
             row.Controls.Add(td);
         }
 

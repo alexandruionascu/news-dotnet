@@ -14,6 +14,16 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
+        var articles = monkey.retrieve<Article>("articles");
+        foreach (var article in articles)
+        {
+            var card = (Controls_ArticleCard)Page.LoadControl("Controls/ArticleCard.ascx");
+            card.Title = article.title;
+            card.PictureUrl = article.picture;
+            card.Text = article.text;
+
+            articlesPanel.Controls.Add(card);
+        }
     }
 }

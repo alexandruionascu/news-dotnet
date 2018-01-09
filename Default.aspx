@@ -15,14 +15,14 @@
                 </div>
               </div>
             </div>
-        <div class="row">
+        <asp:Panel runat="server"  id="articlesPanel" class="row">
             <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
             <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
             <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
             <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
             <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
             <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
-       </div>
+       </asp:Panel>
     </div>
 </div>
 </asp:Content>
