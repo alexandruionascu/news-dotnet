@@ -39,7 +39,7 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         viewPanel.Visible = false;
     }
 
-    private IEnumerable<HtmlGenericControl> GetTablesData(Panel parent)
+    public static IEnumerable<HtmlGenericControl> GetTablesData(Panel parent)
     {
         var tr = parent.Controls.OfType<HtmlGenericControl>().First();
         return tr.Controls.OfType<HtmlGenericControl>();
@@ -58,36 +58,9 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
             }
 
         }
-       
-        var propValuePairs  = getInstaceProperties().Zip(values, (p, v) => Tuple.Create(p, v));
 
-        foreach (var pair in propValuePairs)
-        {
-            if (pair.Item2 == String.Empty)
-            {
-                continue;
-            }
-
-            var prop = ModelType.GetProperty(pair.Item1);
-            object value = prop.GetValue(Instance, null);
-            object valueToSet = pair.Item2;
-
-            if (prop.PropertyType == typeof(int))
-            {
-                valueToSet = Convert.ToInt32(valueToSet);
-            }
-            else if (prop.PropertyType != typeof(string))
-            {
-                throw new Exception
-                (
-                    String.Format("Property type {0} in object model is not supported.")
-                );
-            }
-            else
-            {
-                prop.SetValue(Instance, valueToSet, null);
-            }
-        }
+        var propValuePairs = getInstaceProperties().Zip(values, (p, v) => Tuple.Create(p, v));
+        GenerateInstance(propValuePairs, ModelType, Instance);
 
         var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
         // call the update method using reflections
@@ -110,6 +83,36 @@ public partial class Controls_MonkeyRow : System.Web.UI.UserControl
         }
         viewPanel.Visible = true;
         editPanel.Visible = false;
+    }
+
+    public static void GenerateInstance(IEnumerable<Tuple<string, string>> propValuePairs,
+        Type ModelType, object Instance)
+    {
+        foreach (var pair in propValuePairs)
+        {
+            if (pair.Item2 == String.Empty)
+            {
+                continue;
+            }
+
+            var prop = ModelType.GetProperty(pair.Item1);
+            object value = prop.GetValue(Instance, null);
+            object valueToSet = pair.Item2;
+
+            if (prop.PropertyType == typeof(int))
+            {
+                valueToSet = Convert.ToInt32(valueToSet);
+            }
+            else if (prop.PropertyType != typeof(string))
+            {
+                throw new Exception
+                (
+                    String.Format("Property type {0} in object model is not supported.")
+                );
+            }
+            
+            prop.SetValue(Instance, valueToSet, null);
+        }
     }
 
     public void Delete_Click(object sender, EventArgs e)
