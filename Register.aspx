@@ -14,6 +14,11 @@
                       <input id="username" runat="server" type="text" class="validate">
                       <label for="username">Username</label>
                     </div>
+                   <div class="input-field col s12">
+                      <i class="material-icons prefix">add_a_photo</i>
+                      <input id="Text1" runat="server" type="text" class="validate">
+                      <label for="username">Picture URL</label>
+                   </div>
                    </div>
                     <div class="row">
                     <div class="input-field col s12">
