@@ -5,24 +5,16 @@
 
     <div class="container">
         <div class="row">
-            <div class="col s8">
-                <h4>News</h4>
-            </div>
-            <div class="col s4">
-              <div class="row">
-                <div class="input-field col s4">
-                  <input placeholder="Search" id="search" type="text" class="validate">
+            <div class="col s4 offset-s8">
+              <div class="row center-align valign-wrapper">
+                <div class="input-field col s8">
+                  <i class="material-icons prefix">search</i>
+                  <input runat="server" placeholder="Search" id="search" type="text" class="validate">
                 </div>
+                 <asp:Button runat="server" ID="commentButton" OnClick="searchButton_Click" Text="Search" class="btn waves-effect waves-light" />
               </div>
             </div>
-        <asp:Panel runat="server"  id="articlesPanel" class="row">
-            <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
-            <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
-            <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
-            <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
-            <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
-            <uc:ArticleCard runat="server" PictureUrl="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" Title="Boss" Text="Soarele rasare"/>
-       </asp:Panel>
     </div>
+        <asp:Panel runat="server"  id="articlesPanel" class="row" />
 </div>
 </asp:Content>

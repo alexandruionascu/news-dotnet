@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 
@@ -15,15 +16,31 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         var monkey = new SQLMonkey(Constants.CONNECTION_STRING);
-        var articles = monkey.retrieve<Article>("articles");
-        foreach (var article in articles)
-        {
-            var card = (Controls_ArticleCard)Page.LoadControl("Controls/ArticleCard.ascx");
-            card.Title = article.title;
-            card.PictureUrl = article.picture;
-            card.Text = article.text;
+        var articles = monkey.retrieve<Article>("articles").OrderBy(x => x.date).Take(30);
+        var categories = articles.Select(x => x.category).Distinct();
 
-            articlesPanel.Controls.Add(card);
+        foreach (var category in categories)
+        {
+            var row = new HtmlGenericControl("div");
+            row.Attributes["class"] = "row";
+            articlesPanel.Controls.Add(new LiteralControl(String.Format("<h2>{0}</h2>", category)));
+            foreach (var article in articles.Where(x => x.category == category))
+            {
+                var card = (Controls_ArticleCard)Page.LoadControl("Controls/ArticleCard.ascx");
+                card.Title = article.title;
+                card.PictureUrl = article.picture;
+                card.Text = article.text;
+
+                row.Controls.Add(card);
+            }
+
+            articlesPanel.Controls.Add(row);
         }
+    }
+
+    protected void searchButton_Click(object sender, EventArgs e)
+    {
+        Console.Write(23);
+        // refresh to search=input query
     }
 }
