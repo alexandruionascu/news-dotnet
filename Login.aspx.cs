@@ -9,7 +9,7 @@ public partial class Admin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["alex"] != null)
+        if (Session["user"] != null)
         {
             Response.Redirect("Dashboard.aspx");
         }
@@ -39,7 +39,7 @@ public partial class Admin : System.Web.UI.Page
             return;
         }
 
-        Session[user.username] = true;
+        Session["user"] = user.username;
 
         if (user.type == "admin")
         {

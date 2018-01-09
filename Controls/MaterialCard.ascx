@@ -15,7 +15,7 @@
         
         <div class="col s10">
             <div class="row no-margin">
-                <asp:label id="title" runat="server"><%# Title %></asp:label>
+                <asp:label id="title" runat="server"><b><%# Title %></b></asp:label>
             </div>
 
             <div class="row no-margin">
