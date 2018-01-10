@@ -43,6 +43,11 @@ public partial class Admin : System.Web.UI.Page
 
         if (user.type == "admin")
         {
+            Response.Redirect("Users.aspx");
+            return;
+        } 
+        else if (user.type == "editor")
+        {
             Response.Redirect("Articles.aspx");
         }
 

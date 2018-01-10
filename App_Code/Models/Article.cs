@@ -6,8 +6,7 @@ using System.Web;
 /// <summary>
 /// Summary description for Article
 /// </summary>
-public class Article
-{
+public class Article {
     [PrimaryKey]
     public int id { get; set; }
     public string title { get; set; }

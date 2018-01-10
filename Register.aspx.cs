@@ -41,6 +41,6 @@ public partial class Register : System.Web.UI.Page
         }
 
         monkey.insert<User>(user, "Users");
-        registerButton.InnerText = "Sucessfuly registered";       
+        Response.Redirect("Default.aspx");
     }
 }
