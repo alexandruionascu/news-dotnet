@@ -15,6 +15,6 @@
               </div>
             </div>
     </div>
-        <asp:Panel runat="server"  id="articlesPanel" class="row" />
+        <asp:Panel runat="server"  id="articlesPanel"  />
 </div>
 </asp:Content>

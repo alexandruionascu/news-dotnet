@@ -2,7 +2,7 @@
     <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image">
-          <img src="<%# PictureUrl %>" style="max-height: 300px">
+          <img src="<%# PictureUrl %>" style="height: 300px">
           <span class="card-title" style="text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;"><%# Title %></span>
           <a class="btn-floating halfway-fab waves-effect waves-light red"
               href="<%# String.Format("Read.aspx?article={0}", Title) %>">
