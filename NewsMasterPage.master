@@ -18,15 +18,18 @@
       <div class="row">
         <div class="col s12">
           <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-          <a href="#" class="brand-logo" target="_blank">News Dotnet</a>
+          <a href="Default.aspx" class="brand-logo">News Dotnet</a>
         </div>
       </div>
       <ul class="side-nav" id="mobile-demo">
-        <li><h5 class="title">Categorii</h5></li>
-        <li><a href="#" target="_blank">Sass</a></li>
-        <li><a href="#" target="_blank">Components</a></li>
-        <li><a href="#" target="_blank">Javascript</a></li>
-        <li><a href="#" target="_blank">Mobile</a></li>
+        <li><h5 class="title">Menu</h5></li>
+        <li><a href="Login.aspx">Login</a></li>
+        <li><a href="Register.aspx" >Register</a></li>
+        <li><h5 class="title">Categories</h5></li>
+        <li><a href="Default.aspx?category=Politics">Politics</a></li>
+        <li><a href="Default.aspx?category=Sport">Sport</a></li>
+        <li><a href="Default.aspx?category=Science">Science</a></li>
+        <li><a href="Default.aspx?category=Technology">Technology</a></li>
       </ul>
     </div>
   </nav>
@@ -48,10 +51,9 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  <li><a class="grey-text text-lighten-3" href="Default.aspx">Home</a></li>
+                  <li><a class="grey-text text-lighten-3" href="Login.aspx">Login</a></li>
+                  <li><a class="grey-text text-lighten-3" href="Register.aspx">Register</a></li>
                 </ul>
               </div>
             </div>

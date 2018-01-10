@@ -45,7 +45,7 @@ public partial class _Default : System.Web.UI.Page
 
         foreach (var category in categories)
         {
-            LoadCategory(articles, category);
+            LoadCategory(articles.Where(x => x.category == category), category);
         }
     }
 
